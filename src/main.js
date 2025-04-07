@@ -9,6 +9,7 @@
 
 import { generateUrl } from '@nextcloud/router'
 import { getSharingToken, isPublicShare } from '@nextcloud/sharing/public'
+import { loadState } from '@nextcloud/initial-state'
 import * as $ from 'jquery';
 import { translate as t } from '@nextcloud/l10n'
 import { showError } from '@nextcloud/dialogs'
@@ -157,7 +158,6 @@ OCA.DrawIO = {
     isViewIsFile : function() {
         const mimetypeEl = document.getElementById('mimetype')
         const mimetype = mimetypeEl ? mimetypeEl.value : undefined
-        
         if (mimetype !== undefined) {
             return mimetype !== 'httpd/unix-directory';
         }
